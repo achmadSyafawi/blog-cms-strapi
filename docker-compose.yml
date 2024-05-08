@@ -63,6 +63,23 @@ services:
     depends_on:
       - blog-cms-strapiDB
 
+  # headless-blog-nextjs:
+  #   container_name: headless-cms-blog
+  #   # build: .
+  #   image: headless-cms-blog:latest
+  #   restart: unless-stopped
+  #   # env_file: .env
+  #   environment:
+  #     NEXT_PUBLIC_API_TOKEN: bd309352adbf21793a38df8f1f09e2d1e6ac689038d5168ed28f68d63fd70b7eb0044f91922cf4a811e92bd3b771a319d1982541274c44771524a486d640e1c26a55aae22a80579b43e1c54120ba3fae4c1672440c486f8ce25c65d0b944b2bff916f94fa7dc772307c252d74de3a13003df1dac584a369bc36a8bff4f0b7c5c
+  #     NEXT_PUBLIC_API_URL: http://host.docker.internal:1337
+  #   ports:
+  #     - '3000:3000'
+  #   networks:
+  #     - blog-cms-strapi
+  #   depends_on:
+  #     - blog-cms-strapi
+
+
 volumes:
   blog-cms-strapi-data:
 
