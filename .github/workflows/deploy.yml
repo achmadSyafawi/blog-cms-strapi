@@ -1,0 +1,45 @@
+name: Build, Publish and Deploy
+
+on:
+  push:
+    branches: [ "main" ]
+
+env:
+  PROJECT_ID_IMG: rama-cms
+  REPOSITORY: blog-cms-strapi
+
+jobs:
+
+  build:
+
+    name: Docker login, PUSH, Deploy
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+    - name: Build the Docker image
+      run: |
+        docker login --username ${{ secrets.GHCR_UNAME }} --password ${{ secrets.GHCR_TOKEN }} ghcr.io
+        docker build . --tag ghcr.io/${{ secrets.GHCR_UNAME }}/${{ env.REPOSITORY }}/${{ env.PROJECT_ID_IMG }}:latest
+        docker push ghcr.io/${{ secrets.GHCR_UNAME }}/${{ env.REPOSITORY }}/${{ env.PROJECT_ID_IMG }}:latest
+    
+    - name: Check configCms.txt file
+      run: cat configCms.txt
+
+    - name: Deploy Package
+      uses: appleboy/ssh-action@master
+      env: 
+        GITHUB_USERNAME: ${{secrets.GHCR_UNAME}}
+        GITHUB_TOKEN: ${{secrets.GHCR_TOKEN}}
+      with:
+        host: ${{ secrets.DEPLOY_HOST }}
+        port: ${{ secrets.DEPLOY_PORT }}
+        username: ${{ secrets.DEPLOY_USER }}
+        password: ${{ secrets.DEPLOY_PASS }}
+        envs: GITHUB_USERNAME, GITHUB_TOKEN
+        script: |
+          docker login ghcr.io -u $GITHUB_USERNAME -p $GITHUB_TOKEN
+          docker pull ghcr.io/$GITHUB_USERNAME/${{ env.REPOSITORY }}/${{ env.PROJECT_ID_IMG }}:latest
+          docker stop ${{ env.PROJECT_ID_IMG }}
+          docker system prune -f
+          docker run --name ${{ env.PROJECT_ID_IMG }} -dit -p 1337:1337 --env-file= ./configCms.txt ./ ghcr.io/$GITHUB_USERNAME/${{ env.REPOSITORY }}/${{ env.PROJECT_ID_IMG }}:latest
