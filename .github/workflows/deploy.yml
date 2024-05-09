@@ -45,4 +45,4 @@ jobs:
           docker pull ghcr.io/$GITHUB_USERNAME/${{ env.REPOSITORY }}/${{ env.PROJECT_ID_IMG }}:latest
           docker stop ${{ env.PROJECT_ID_IMG }}
           docker system prune -f
-          docker run --name ${{ env.PROJECT_ID_IMG }} -dit -p 1337:1337 --env-file= ./.env ghcr.io/$GITHUB_USERNAME/${{ env.REPOSITORY }}/${{ env.PROJECT_ID_IMG }}:latest
+          docker run --name ${{ env.PROJECT_ID_IMG }} -dit -p 1337:1337 --env-file .env ghcr.io/$GITHUB_USERNAME/${{ env.REPOSITORY }}/${{ env.PROJECT_ID_IMG }}:latest
