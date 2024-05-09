@@ -23,8 +23,8 @@ jobs:
         docker build . --tag ghcr.io/${{ secrets.GHCR_UNAME }}/${{ env.REPOSITORY }}/${{ env.PROJECT_ID_IMG }}:latest
         docker push ghcr.io/${{ secrets.GHCR_UNAME }}/${{ env.REPOSITORY }}/${{ env.PROJECT_ID_IMG }}:latest
     
-    - name: Look config
-      run: pwd | cat ./configCms.txt
+    - name: Check working dir
+      run: pwd 
     
     - name: Check configCms.txt file
       run: cat ./configCms.txt
