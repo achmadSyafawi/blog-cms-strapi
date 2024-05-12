@@ -1,0 +1,39 @@
+{
+  "kind": "singleType",
+  "collectionName": "plans",
+  "info": {
+    "singularName": "plan",
+    "pluralName": "plans",
+    "displayName": "plan",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "leftContent": {
+      "type": "component",
+      "repeatable": true,
+      "component": "card-content.card-content"
+    },
+    "rightContent": {
+      "type": "component",
+      "repeatable": true,
+      "component": "card-content.card-content"
+    },
+    "mediaContent": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images",
+        "videos"
+      ]
+    },
+    "planSummary": {
+      "type": "text",
+      "maxLength": 255
+    }
+  }
+}

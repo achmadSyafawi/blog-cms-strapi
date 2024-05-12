@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_card_content_card_contents",
+  "info": {
+    "displayName": "cardContent",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "summary": {
+      "type": "text",
+      "maxLength": 255
+    },
+    "icon": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "test": {
+      "type": "string"
+    }
+  }
+}
