@@ -12,37 +12,16 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "title": {
+    "tag": {
       "type": "string",
       "required": true,
       "maxLength": 255,
       "unique": true
     },
-    "subTitle": {
+    "logo": {
       "type": "string",
       "required": true,
       "maxLength": 255
-    },
-    "isFeatured": {
-      "type": "boolean",
-      "default": false,
-      "required": true
-    },
-    "featuredImage": {
-      "type": "media",
-      "multiple": false,
-      "required": true,
-      "allowedTypes": [
-        "images"
-      ]
-    },
-    "thumbnail": {
-      "type": "media",
-      "multiple": false,
-      "required": true,
-      "allowedTypes": [
-        "images"
-      ]
     },
     "slug": {
       "type": "string",
@@ -55,6 +34,21 @@
     "summary": {
       "type": "text",
       "required": true
+    },
+    "tujuan": {
+      "type": "text",
+      "required": true
+    },
+    "pencapaian": {
+      "type": "text",
+      "required": true
+    },
+    "imageThumbnails": {
+      "type": "component",
+      "repeatable": true,
+      "component": "layout-images.images",
+      "required": true,
+      "max": 6
     }
   }
 }
