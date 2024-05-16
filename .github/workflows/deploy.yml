@@ -43,4 +43,4 @@ jobs:
           docker stop ${{ env.PROJECT_ID_IMG }}
           docker system prune -f
           cat configCms.txt
-          docker run --name ${{ env.PROJECT_ID_IMG }} -dit -p 1337:1337 --env-file configCms.txt ghcr.io/$GITHUB_USERNAME/${{ env.REPOSITORY }}/${{ env.PROJECT_ID_IMG }}:latest
+          docker run --name ${{ env.PROJECT_ID_IMG }} -dit -p 8080:1337 --env-file configCms.txt -v ./public/uploads:/opt/app/public/uploads -w /opt/app ghcr.io/$GITHUB_USERNAME/${{ env.REPOSITORY }}/${{ env.PROJECT_ID_IMG }}:latest
