@@ -31,24 +31,23 @@
       "type": "richtext",
       "required": true
     },
-    "summary": {
-      "type": "text",
-      "required": true
-    },
-    "tujuan": {
-      "type": "text",
-      "required": true
-    },
-    "pencapaian": {
-      "type": "text",
-      "required": true
-    },
     "imageThumbnails": {
       "type": "component",
-      "repeatable": true,
+      "repeatable": false,
       "component": "layout-images.images",
       "required": true,
       "max": 6
+    },
+    "summary": {
+      "type": "richtext",
+      "required": true
+    },
+    "tujuan": {
+      "type": "richtext",
+      "required": false
+    },
+    "pencapaian": {
+      "type": "richtext"
     }
   }
 }

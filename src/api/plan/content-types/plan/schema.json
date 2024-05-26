@@ -17,11 +17,6 @@
       "repeatable": true,
       "component": "card-content.card-content"
     },
-    "rightContent": {
-      "type": "component",
-      "repeatable": true,
-      "component": "card-content.card-content"
-    },
     "mediaContent": {
       "type": "media",
       "multiple": false,

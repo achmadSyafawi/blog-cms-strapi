@@ -1,0 +1,35 @@
+{
+  "kind": "collectionType",
+  "collectionName": "video_feeds",
+  "info": {
+    "singularName": "video-feed",
+    "pluralName": "video-feeds",
+    "displayName": "videoFeed"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "maxLength": 255
+    },
+    "media": {
+      "allowedTypes": [
+        "images",
+        "videos"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
+    },
+    "alt": {
+      "type": "string",
+      "maxLength": 255
+    },
+    "link": {
+      "type": "string"
+    }
+  }
+}

@@ -18,8 +18,9 @@
         "images"
       ]
     },
-    "test": {
-      "type": "string"
+    "alt": {
+      "type": "string",
+      "maxLength": 255
     }
   }
 }
